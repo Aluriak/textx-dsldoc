@@ -1,0 +1,10 @@
+*.pyc
+*.vim
+.cache/
+.pytest_cache
+__pycache__/
+build/
+dist/
+textx-dsldoc.egg-info/
+venv-*/
+venv/
