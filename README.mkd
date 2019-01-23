@@ -1,0 +1,28 @@
+# TextX DSL autodocumentation tool
+A non-official TextX poc-project aiming to autogenerate documentation of DSL.
+
+
+## Files
+
+- [example.py](example.py): example of DSL definition directly taken [from another project](https://github.com/aluriak/24h2019)
+- [out.html](out.html): the HTML output file (take a look to get a feeling of the current project achievements)
+- [poc.py](poc.py): first implementation, absolutely bad, but few functions are worth saving
+- [poc_as_cls.py](poc_as_cls.py): use some functions of `poc.py` to implement the same thing, but in a clearer manner
+- [poc_render_peg.py](poc_render_peg.py): rendering of arpeggio (textx backend) grammars
+
+[Current results](out.html) are encouraging.
+
+## F(unny )eatures
+
+- support of docstrings (those at user classes level)
+- auto-generation of examples for regexes, and complete linking to [pythex.org](https://pythex.org)
+
+
+## TODO
+
+- integrate complete example (either randomly or author-provided)
+- get a complete example with advanced features like references and other textx/arpeggio constructs
+- fix detection and handling of terminal for the description of rules
+- generate few examples for each documented rule (randomly, probably)
+- make the generation deterministic
+- humanize the phrasing (ex: when choice only on raw strings, avoid the bullet list and list them inline directly with an *or* for the last join: *Type either _a_, _b_ or _c_*)
