@@ -27,6 +27,7 @@ DSL:
     commands*=BaseCommand;
 BaseCommand:
     (Require | Group | Color | Condition | Callback | Runfile | Wait) '.'?;
+//    (Runfile | Group) '.'?;
 
 
 Require:
@@ -48,7 +49,7 @@ Runfile:
     ('run'|'runfile') filename+=Filename[','];
 
 Wait:
-    'wait' ((amount=BOOL unit=Unit) | amount='forever');
+    'wait' ((amount=FLOAT unit=Unit) | amount='forever');
 
 
 //#####################
@@ -124,6 +125,21 @@ OPERATOR_FUNC = {
 }
 
 
+def laumio_from_name_or_id(id_or_name:str or int, context={}):
+    # print(f'LAUMIO FROM {id_or_name} in {SPATIAL_POSITION}')
+    if id_or_name.isnumeric():
+        id_or_name = int(id_or_name)
+    if isinstance(id_or_name, int):
+        id_or_name = SPATIAL_POSITION[id_or_name]
+    assert isinstance(id_or_name, str)
+    for laumio in context['laumios']:
+        # print('\tPROPOSITION:', laumio.name, id_or_name)
+        if laumio.name == id_or_name:
+            return laumio
+
+
+# classes used to build the raw model
+
 def model_class(name: str, bases: tuple, attrs: dict) -> type:
     """Metaclass to automatically build the __init__ to get the properties,
     and register the class for metamodel
@@ -139,23 +155,8 @@ def model_class(name: str, bases: tuple, attrs: dict) -> type:
     model_class.classes.append(cls)
     return cls
 
-
 model_class.classes = []
 
-def laumio_from_name_or_id(id_or_name:str or int, context={}):
-    # print(f'LAUMIO FROM {id_or_name} in {SPATIAL_POSITION}')
-    if id_or_name.isnumeric():
-        id_or_name = int(id_or_name)
-    if isinstance(id_or_name, int):
-        id_or_name = SPATIAL_POSITION[id_or_name]
-    assert isinstance(id_or_name, str)
-    for laumio in context['laumios']:
-        # print('\tPROPOSITION:', laumio.name, id_or_name)
-        if laumio.name == id_or_name:
-            return laumio
-
-
-# classes used to build the raw model
 
 class Require(metaclass=model_class):
     def execute(self, context, callbacks):
@@ -271,6 +272,7 @@ class Identifier(metaclass=model_class):
         return self.id
 
 
+print(model_class.classes)
 METAMODEL = textx.metamodel_from_str(
     GRAMMAR, classes=model_class.classes, debug=False
 )
