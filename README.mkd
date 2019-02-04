@@ -26,3 +26,4 @@ A non-official TextX poc-project aiming to autogenerate documentation of DSL.
 - generate few examples for each documented rule (randomly, probably)
 - make the generation deterministic
 - humanize the phrasing (ex: when choice only on raw strings, avoid the bullet list and list them inline directly with an *or* for the last join: *Type either _a_, _b_ or _c_*)
+- integration into textx with [textx subcommands](https://github.com/textX/textX/pull/162) (see [doc](http://textx.github.io/textX/latest/textx_command/#extending-textx-command))
