@@ -14,6 +14,9 @@ from example import METAMODEL
 
 
 REGEX_MATCH_EXAMPLES = {
+    'CamelCaseWith5Words',
+    'UPPER_CASE_WITH_5_WORDS',
+    'snake_case_with_5_words',
     'Lucas',
     'Jean-Charles',
     'Cunégonde',
