@@ -52,13 +52,23 @@ class ParsingSequence:
         elif len(item) == 2 and item[0] is str:
             yield f'the string `{item[1]}`'
         elif item[0] == 'choice':
+            # In order to avoid a sublist, the following machinery avoid having
+            #  a sublist when there is few elements, all described by a single line.
             assert len(item) == 2
-            yield 'one of the following:'
+            lines = []
+            inline = len(item[1]) < 4  # if True, push the content in a single line
+            # NOTE: be based on the final length instead of the number of item would be more robust.
             for sub in item[1]:
                 first, *nexts = ParsingSequence.item_repr(sub)
-                yield first
+                lines.append(first)
                 for next_ in nexts:
-                    yield '    - ' + next_
+                    lines.append('    - ' + next_)
+                    inline = False  # we can't put it into a single line
+            if inline:
+                yield 'either ' + ' or '.join(lines)
+            else:  # multiple lines
+                yield 'one of the following:'
+                yield from lines
         elif isinstance(item, tuple):  # this is a composed object
             yield 'in this order:'
             for sub in item:
