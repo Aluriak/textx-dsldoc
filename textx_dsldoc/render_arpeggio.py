@@ -2,7 +2,7 @@
 """
 
 import arpeggio
-from poc import print_obj, render_regex, SPECIAL_REGEXES, SPECIAL_REGEXES_REV
+from .render_utils import print_obj, render_regex, SPECIAL_REGEXES, SPECIAL_REGEXES_REV
 
 
 REPEAT_TO_STR = {

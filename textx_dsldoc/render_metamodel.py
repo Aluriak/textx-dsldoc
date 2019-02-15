@@ -5,8 +5,8 @@
 import textx
 import arpeggio
 import markdown
-from poc import print_obj, get_match_examples, doc_from_class, render_regex, as_regex, SPECIAL_REGEXES, METAMODEL, str_sequence_doc, render_arpeggio_sequence, CHARS_AS_READABLE
-from poc_render_peg import render_arpeggio_sequence_as_str
+from .render_utils import print_obj, get_match_examples, doc_from_class, render_regex, as_regex, SPECIAL_REGEXES, str_sequence_doc, render_arpeggio_sequence, CHARS_AS_READABLE
+from .render_arpeggio import render_arpeggio_sequence_as_str
 
 
 class ParsingSequence:

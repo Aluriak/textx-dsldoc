@@ -2,6 +2,7 @@
 
 """
 
+import os
 import click
 import textx
 from .converters import markdown_from_metamodel, html_from_metamodel
@@ -20,6 +21,8 @@ def autodoc(target:str, metamodel:str, import_target:bool, output:str):
     and generate its doc.
 
     """
+    click.echo(f"\n\nBEGINNING…")
+    click.echo(f"{target}\t\t{metamodel}")
     if os.path.splitext(target)[1] == '.py':
         if import_target:
             module = importlib.import_module(target)

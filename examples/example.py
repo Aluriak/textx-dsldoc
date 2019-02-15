@@ -26,8 +26,9 @@ GRAMMAR = """
 DSL:
     commands*=BaseCommand;
 BaseCommand:
-    (Require | Group | Color | Condition | Callback | Runfile | Wait) '.'?;
-//    (Runfile | Group) '.'?;
+    BaseCommandRaw '.'?;
+BaseCommandRaw:  // necessary because of some weird behavior in current master branch of textx
+    Require | Group | Color | Condition | Callback | Runfile | Wait;
 
 
 Require:

@@ -1,6 +1,8 @@
 # TextX DSL autodocumentation tool
 A non-official TextX poc-project aiming to autogenerate documentation of DSL.
 
+For testing the TextX integration, you will be required to install [from repository](https://github.com/textX/textX) since the CLI extending is not available in 1.8.
+
 
 ## Files
 
