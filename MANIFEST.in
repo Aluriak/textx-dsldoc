@@ -1,0 +1,5 @@
+exclude *.mkd
+exclude Makefile
+include README.mkd
+prune examples
+prune pocs
