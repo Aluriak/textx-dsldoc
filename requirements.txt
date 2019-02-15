@@ -1,4 +1,0 @@
-Click==7.0
-Markdown==3.0.1
-exrex==0.10.5
-textX==1.8.0
