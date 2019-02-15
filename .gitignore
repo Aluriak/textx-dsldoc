@@ -2,7 +2,7 @@
 *.vim
 .cache/
 .pytest_cache
-TextX/
+textX/
 __pycache__/
 build/
 dist/
