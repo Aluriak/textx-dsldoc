@@ -6,6 +6,6 @@ textX/
 __pycache__/
 build/
 dist/
-textx-dsldoc.egg-info/
+textx_dsldoc.egg-info/
 venv-*/
 venv/
