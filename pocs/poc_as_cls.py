@@ -174,16 +174,6 @@ class DocRegexSection(DocSection):
         yield ''
 
 
-class DocRuleSection(DocSection):
-    def __init__(self, regex:str, **kwargs):
-        self.regex = str(regex)
-        super().__init__(**kwargs)
-
-    def as_markdown(self):
-        pass
-
-
-
 if __name__ == '__main__':
     classes = [METAMODEL.rootcls] + list(METAMODEL.user_classes.values())
     print('CLASSES:', classes)
