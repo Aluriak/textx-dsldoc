@@ -1,23 +1,27 @@
 # TextX DSL autodocumentation tool
 A non-official TextX poc-project aiming to autogenerate documentation of DSL.
 
-For testing the TextX integration, you will be required to install [from repository](https://github.com/textX/textX) since the CLI extending is not available in 1.8.
 
+Installation:
 
-## Files
+    pip install textx-dsldoc
+    # use --no-deps if installing textx from repository
 
-- [example.py](example.py): example of DSL definition directly taken [from another project](https://github.com/aluriak/24h2019)
-- [out.html](out.html): the HTML output file (take a look to get a feeling of the current project achievements)
-- [poc.py](poc.py): first implementation, absolutely bad, but few functions are worth saving
-- [poc_as_cls.py](poc_as_cls.py): use some functions of `poc.py` to implement the same thing, but in a clearer manner
-- [poc_render_peg.py](poc_render_peg.py): rendering of arpeggio (textx backend) grammars
+Usage:
 
-[Current results](out.html) are encouraging.
+    textx autodoc <tx or py file>
+
+For installing from pypi and testing of the TextX integration, you will be required to install textX [from repository](https://github.com/textX/textX) since the CLI extending is not available before 1.9.0, which is not distributed yet.
+
+The base proof of concept of that project is available under the [pocs directory](pocs/).
+
 
 ## F(unny )eatures
 
+- automatic integration into textx with [textx subcommands](http://textx.github.io/textX/latest/textx_command/#extending-textx-command)
 - support of docstrings (those at user classes level)
 - auto-generation of examples for regexes, and complete linking to [pythex.org](https://pythex.org)
+- when choosing only on short raw strings, avoid the bullet list and list them inline directly with an *or* for the last join: *Type either _a_, _b_ or _c_*)
 
 
 ## TODO
@@ -27,5 +31,4 @@ For testing the TextX integration, you will be required to install [from reposit
 - fix detection and handling of terminal for the description of rules
 - generate few examples for each documented rule (randomly, probably)
 - make the generation deterministic
-- humanize the phrasing (ex: when choice only on raw strings, avoid the bullet list and list them inline directly with an *or* for the last join: *Type either _a_, _b_ or _c_*)
-- integration into textx with [textx subcommands](https://github.com/textX/textX/pull/162) (see [doc](http://textx.github.io/textX/latest/textx_command/#extending-textx-command))
+- humanize the phrasing moar

@@ -1,0 +1,9 @@
+## Files
+
+- [example.py](example.py): example of DSL definition directly taken [from another project](https://github.com/aluriak/24h2019)
+- [out.html](out.html): the HTML output file (take a look to get a feeling of the current project achievements)
+- [poc.py](poc.py): first implementation, absolutely bad, but few functions are worth saving
+- [poc_as_cls.py](poc_as_cls.py): use some functions of `poc.py` to implement the same thing, but in a clearer manner
+- [poc_render_peg.py](poc_render_peg.py): rendering of arpeggio (textx backend) grammars
+
+[results](out.html) are encouraging.
