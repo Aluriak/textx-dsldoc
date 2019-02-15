@@ -1,0 +1,148 @@
+<h1>DSL</h1>
+<p style="margin-left: 40px"><tt><p>commands*=<a href="#basecommand">BaseCommand</a></p></tt></p>
+
+<ul>
+<li>Type zero or any number of <a href="#basecommand">BaseCommand</a> separated by any space, including line break</li>
+</ul><br/><br/>
+<h1>Require</h1>
+<p style="margin-left: 40px"><tt><p>require <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=42%0ACamelcasewith5Words%0ALucas"><code>/[a-zA-Z0-9_-]+/</code></a></p></tt></p>
+
+<ul>
+<li>Type the string <code>require</code></li>
+<li>Type anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=42%0ACamelcasewith5Words%0AUPPER_CASE_WITH_5_WORDS"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+</ul><br/><br/>
+<h1>Group</h1>
+<p style="margin-left: 40px"><tt><p>group laumios+=<a href="#identifier">Identifier</a>[,] as <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=007%0A42%0ASnake_Case_With_5_Words"><code>/[a-zA-Z0-9_-]+/</code></a></p></tt></p>
+
+<ul>
+<li>Type the string <code>group</code></li>
+<li>Type at least one <a href="#identifier">Identifier</a> separated by comma</li>
+<li>Type the string <code>as</code></li>
+<li>Type anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=Camelcasewith5Words%0Aavalidpythonidentifier_02342%0Ajean-charles"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+</ul><br/><br/>
+<h1>Color</h1>
+<p style="margin-left: 40px"><tt><p>(fill|color) group_or_laumio+=<a href="#identifier">Identifier</a>[,] ?=<a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=42%0ALucas%0Ajean-charles"><code>/[a-zA-Z0-9_-]+/</code></a> (ring|column) (in|as) <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=Snake_Case_With_5_Words%0AUPPER_CASE_WITH_5_WORDS%0Ajean-charles"><code>/[a-zA-Z0-9_-]+/</code></a></p></tt></p>
+
+<ul>
+<li>Type either the string <code>fill</code> or the string <code>color</code></li>
+<li>Type at least one <a href="#identifier">Identifier</a> separated by comma</li>
+<li>Type optionally in this order:<ul>
+<li>anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=42%0AUPPER_CASE_WITH_5_WORDS%0Aavalidpythonidentifier_02342"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+<li>either the string <code>ring</code> or the string <code>column</code></li>
+</ul>
+</li>
+<li>Type either the string <code>in</code> or the string <code>as</code></li>
+<li>Type anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=Camelcasewith5Words%0ALucas%0Ajean-charles"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+</ul><br/><br/>
+<h1>Callback</h1>
+<p style="margin-left: 40px"><tt><p>whenever (<a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=Camelcasewith5Words%0Aavalidpythonidentifier_02342%0Ajean-charles"><code>/[a-zA-Z0-9_-]+/</code></a>  <a href="https://pythex.org/?regex=%3D%3D%7C%3E%3D%7C%3C%3D%7C%21%3D%7C%3D%5C/%3D%7C%3D%7C%3E%7C%3C&amp;test_string=%21%3D%0A%3E%0A%3E%3D"><code>/==|&gt;=|&lt;=|!=|=\/=|=|&gt;|&lt;/</code></a>  (<a href="#int">INT</a>|<a href="#float">FLOAT</a>|<a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=007%0A42%0AUPPER_CASE_WITH_5_WORDS"><code>/[a-zA-Z0-9_-]+/</code></a>)|button  <a href="#int">INT</a>  is  negation?=  pressed) { subcommands*=<a href="#basecommand">BaseCommand</a> }</p></tt></p>
+
+<ul>
+<li>Type the string <code>whenever</code></li>
+<li>Type one of the following:<ul>
+<li>in this order:<ul>
+<li>anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=42%0ALucas%0Ajean-charles"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+<li>anything matching regex <a href="https://pythex.org/?regex=%3D%3D%7C%3E%3D%7C%3C%3D%7C%21%3D%7C%3D%5C/%3D%7C%3D%7C%3E%7C%3C&amp;test_string=%3C%3D%0A%3D%3D%0A%3E%3D"><code>/==|&gt;=|&lt;=|!=|=\/=|=|&gt;|&lt;/</code></a></li>
+<li>either anything matching standard regex INT or anything matching standard regex FLOAT or anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=007%0ALucas%0Ajean-charles"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+</ul>
+</li>
+<li>in this order:<ul>
+<li>the string <code>button</code></li>
+<li>anything matching standard regex INT</li>
+<li>the string <code>is</code></li>
+<li>optionally the string <code>not</code></li>
+<li>the string <code>pressed</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Type the string <code>{</code></li>
+<li>Type zero or any number of <a href="#basecommand">BaseCommand</a> separated by any space, including line break</li>
+<li>Type the string <code>}</code></li>
+</ul><br/><br/>
+<h1>Condition</h1>
+<p style="margin-left: 40px"><tt><p>if (<a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=42%0ASnake_Case_With_5_Words%0AUPPER_CASE_WITH_5_WORDS"><code>/[a-zA-Z0-9_-]+/</code></a>  <a href="https://pythex.org/?regex=%3D%3D%7C%3E%3D%7C%3C%3D%7C%21%3D%7C%3D%5C/%3D%7C%3D%7C%3E%7C%3C&amp;test_string=%3C%0A%3D%0A%3E%3D"><code>/==|&gt;=|&lt;=|!=|=\/=|=|&gt;|&lt;/</code></a>  (<a href="#int">INT</a>|<a href="#float">FLOAT</a>|<a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=007%0A42%0Aavalidpythonidentifier_02342"><code>/[a-zA-Z0-9_-]+/</code></a>)|button  <a href="#int">INT</a>  is  negation?=  pressed) { ifcommands<em>=<a href="#basecommand">BaseCommand</a> } else { elsecommands</em>=<a href="#basecommand">BaseCommand</a> }</p></tt></p>
+
+<ul>
+<li>Type the string <code>if</code></li>
+<li>Type one of the following:<ul>
+<li>in this order:<ul>
+<li>anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=Lucas%0ASnake_Case_With_5_Words%0AUPPER_CASE_WITH_5_WORDS"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+<li>anything matching regex <a href="https://pythex.org/?regex=%3D%3D%7C%3E%3D%7C%3C%3D%7C%21%3D%7C%3D%5C/%3D%7C%3D%7C%3E%7C%3C&amp;test_string=%3D%3D%0A%3E%0A%3E%3D"><code>/==|&gt;=|&lt;=|!=|=\/=|=|&gt;|&lt;/</code></a></li>
+<li>either anything matching standard regex INT or anything matching standard regex FLOAT or anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=007%0ALucas%0Ajean-charles"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+</ul>
+</li>
+<li>in this order:<ul>
+<li>the string <code>button</code></li>
+<li>anything matching standard regex INT</li>
+<li>the string <code>is</code></li>
+<li>optionally the string <code>not</code></li>
+<li>the string <code>pressed</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Type the string <code>{</code></li>
+<li>Type zero or any number of <a href="#basecommand">BaseCommand</a> separated by any space, including line break</li>
+<li>Type the string <code>}</code></li>
+<li>Type the string <code>else</code></li>
+<li>Type the string <code>{</code></li>
+<li>Type zero or any number of <a href="#basecommand">BaseCommand</a> separated by any space, including line break</li>
+<li>Type the string <code>}</code></li>
+</ul><br/><br/>
+<h1>SensorComparison</h1>
+<p style="margin-left: 40px"><tt><p><a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=42%0ALucas%0Ajean-charles"><code>/[a-zA-Z0-9_-]+/</code></a> <a href="https://pythex.org/?regex=%3D%3D%7C%3E%3D%7C%3C%3D%7C%21%3D%7C%3D%5C/%3D%7C%3D%7C%3E%7C%3C&amp;test_string=%3C%0A%3D%0A%3E%3D"><code>/==|&gt;=|&lt;=|!=|=\/=|=|&gt;|&lt;/</code></a> (<a href="#int">INT</a>|<a href="#float">FLOAT</a>|<a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=007%0A42%0ACamelcasewith5Words"><code>/[a-zA-Z0-9_-]+/</code></a>)</p></tt></p>
+
+<ul>
+<li>Type anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=42%0ACamelcasewith5Words%0Aavalidpythonidentifier_02342"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+<li>Type anything matching regex <a href="https://pythex.org/?regex=%3D%3D%7C%3E%3D%7C%3C%3D%7C%21%3D%7C%3D%5C/%3D%7C%3D%7C%3E%7C%3C&amp;test_string=%3C%0A%3D/%3D%0A%3E%3D"><code>/==|&gt;=|&lt;=|!=|=\/=|=|&gt;|&lt;/</code></a></li>
+<li>Type either anything matching standard regex INT or anything matching standard regex FLOAT or anything matching regex <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=Camelcasewith5Words%0ALucas%0Aavalidpythonidentifier_02342"><code>/[a-zA-Z0-9_-]+/</code></a></li>
+</ul><br/><br/>
+<h1>ButtonComparison</h1>
+<p style="margin-left: 40px"><tt><p>button <a href="#int">INT</a> is negation?= pressed</p></tt></p>
+
+<ul>
+<li>Type the string <code>button</code></li>
+<li>Type anything matching standard regex INT</li>
+<li>Type the string <code>is</code></li>
+<li>Type optionally the string <code>not</code></li>
+<li>Type the string <code>pressed</code></li>
+</ul><br/><br/>
+<h1>Wait</h1>
+<p style="margin-left: 40px"><tt><p>wait (<a href="#float">FLOAT</a>  <a href="https://pythex.org/?regex=%28s%7Csecond%7Cseconds%7Cm%7Cmin%7Chour%7Ch%7Cday%7Cd%29&amp;test_string=d%0Am%0Amin"><code>/(s|second|seconds|m|min|hour|h|day|d)/</code></a>|forever)</p></tt></p>
+
+<ul>
+<li>Type the string <code>wait</code></li>
+<li>Type one of the following:<ul>
+<li>in this order:<ul>
+<li>anything matching standard regex FLOAT</li>
+<li>anything matching regex <a href="https://pythex.org/?regex=%28s%7Csecond%7Cseconds%7Cm%7Cmin%7Chour%7Ch%7Cday%7Cd%29&amp;test_string=d%0Ahour%0Am"><code>/(s|second|seconds|m|min|hour|h|day|d)/</code></a></li>
+</ul>
+</li>
+<li>the string <code>forever</code></li>
+</ul>
+</li>
+</ul><br/><br/>
+<h1>Runfile</h1>
+<p style="margin-left: 40px"><tt><p>(run|runfile) filename+=<a href="#filename">Filename</a>[,]</p></tt></p>
+
+<ul>
+<li>Type either the string <code>run</code> or the string <code>runfile</code></li>
+<li>Type at least one <a href="#filename">Filename</a> separated by comma</li>
+</ul><br/><br/>
+<h1>Filename</h1>
+<p>Filename is a <em>regex rule</em>, detecting anything matched by <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9%5C.%5C/%5C%7E%5C%5B%5C%5D%5C%27%22_-%5D%2B&amp;test_string=../../A/Relative/Path/To/A/.Dotfile%0A../../A/Relative/Path/To/A/File%0A../../a/relative/path/to/a/.dotfile%0A../../a/relative/path/to/a/file%0A/A/Path/To/A/File%0A/a/path/to/a/file%0A007%0A42%0AA/Relative/Path/To/A/.Dotfile%0AA/Relative/Path/To/A/File%0AAvalidpythonidentifier_02342%0ACamelCaseWith5Words%0ACamelcasewith5Words%0AJean-Charles%0ALucas%0ASnake_Case_With_5_Words%0AUPPER_CASE_WITH_5_WORDS%0AUpper_Case_With_5_Words%0Aa/relative/path/to/a/.dotfile%0Aa/relative/path/to/a/file%0AaValidPythonIdentifier_02342%0Aavalidpythonidentifier_02342%0Acamelcasewith5words%0Ajean-charles%0Alucas%0Asnake_case_with_5_words%0Aupper_case_with_5_words%0A%7E/A/Path/To/A/.Dotfile%0A%7E/A/Path/To/A/File%0A%7E/a/path/to/a/.dotfile%0A%7E/a/path/to/a/file"><code>/[a-zA-Z0-9\.\/\~\[\]\'"_-]+/</code></a>, such as:</p>
+<ul>
+<li><pre>/A/Path/To/A/File</pre></li>
+<li><pre>Lucas</pre></li>
+<li><pre>UPPER_CASE_WITH_5_WORDS</pre></li>
+<li><pre>a/relative/path/to/a/.dotfile</pre></li>
+</ul><br/><br/>
+<h1>Identifier</h1>
+<p>Identifier is a <em>regex rule</em>, detecting anything matched by <a href="https://pythex.org/?regex=%5Ba-zA-Z0-9_-%5D%2B&amp;test_string=007%0A42%0AAvalidpythonidentifier_02342%0ACamelCaseWith5Words%0ACamelcasewith5Words%0AJean-Charles%0ALucas%0ASnake_Case_With_5_Words%0AUPPER_CASE_WITH_5_WORDS%0AUpper_Case_With_5_Words%0AaValidPythonIdentifier_02342%0Aavalidpythonidentifier_02342%0Acamelcasewith5words%0Ajean-charles%0Alucas%0Asnake_case_with_5_words%0Aupper_case_with_5_words"><code>/[a-zA-Z0-9_-]+/</code></a>, such as:</p>
+<ul>
+<li><pre>42</pre></li>
+<li><pre>Lucas</pre></li>
+<li><pre>avalidpythonidentifier_02342</pre></li>
+<li><pre>jean-charles</pre></li>
+</ul><br/><br/>
