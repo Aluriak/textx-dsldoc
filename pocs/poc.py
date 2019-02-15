@@ -101,7 +101,7 @@ def doc_from_class(cls:object) -> str or None:
         return
     if any(line.strip() == 'Not documented by textx-dsldoc.' for line in cls_doc.splitlines()):
         return
-    if 'Dynamicaly created class. Each textX rule will result in' in cls_doc:
+    if 'Dynamically created class. Each textX rule will result in' in cls_doc:
         return  # that's the default doc associated with non-user classes
     # print(f'DOC: "{cls_doc}"')
     return cls_doc
